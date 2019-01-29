@@ -31,17 +31,20 @@ const phraseArray = getRandomPhraseAsArray(phrases);
 function addPhraseToDisplay(arr){
   for (i = 0; i < arr.length; i++) {
     let li = document.createElement('li');
-
-    if () {
-      list.classList.add('letter');
-    } else {
-      list.classList.add('space');
-    }
+      let textCont = li.textContent(arr[i]);
+      li.appendChild(textCont);
+      document.querySelector('#phrase ul').appendChild(li);
+      if (li[i] === '') {
+        li.classList.add('letter');
+      } else {
+        li.classList.add('space');
+      }
   }
-    // do stuff any arr that is passed in, and add to `#phrase ul`
+}
+
+function checkLetter() {
+  
 }
 
 // getRandomPhraseArray(phrases);
-
-
 addPhrasetoDisplay(phraseArray);
