@@ -31,7 +31,7 @@ const phraseArray = getRandomPhraseAsArray(phrases);
 function addPhraseToDisplay(arr){
   for (i = 0; i < arr.length; i++) {
     let li = document.createElement('li');
-      
+
     if () {
       list.classList.add('letter');
     } else {
