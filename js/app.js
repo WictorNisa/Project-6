@@ -41,10 +41,25 @@ function addPhraseToDisplay(arr){
       }
   }
 }
+const keyBoard = document.getElementById('keyrow');
 
-function checkLetter(button) {
+keyBoard.addEventListener('click', () =>{
+  button.classList.add("chosen");
+  const letterFound = correctLetter;
+  function checkLetter(button) {
+    for(i = 0; i < letter.length; i++) {
+      if (letter[i] === button) {
+        const correctLetter = li.letter.classList.add("show");
+        return correctLetter;
+      } else {
+        return null;
+      }
+    }
+  }
 
-}
+
+});
+
 
 // getRandomPhraseArray(phrases);
 addPhraseToDisplay(phraseArray);
