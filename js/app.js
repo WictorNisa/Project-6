@@ -2,6 +2,7 @@ const words = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
 const mainButton = document.querySelector('.btn__reset');
 const overLay = document.getElementById('overlay');
+const ul = document.querySelector('#phrase ul');
 const point = document.body.style.cursor = "pointer";
 let missed = 0;
 
@@ -26,25 +27,24 @@ function getRandomPhraseArray(arr){
   return randSplit;
 }
 
-const phraseArray = getRandomPhraseAsArray(phrases);
+const phraseArray = getRandomPhraseArray(phrases);
 
 function addPhraseToDisplay(arr){
   for (i = 0; i < arr.length; i++) {
     let li = document.createElement('li');
-      let textCont = li.textContent(arr[i]);
-      li.appendChild(textCont);
-      document.querySelector('#phrase ul').appendChild(li);
-      if (li[i] === '') {
-        li.classList.add('letter');
+      li.textContent = arr[i];
+      ul.appendChild(li);
+      if (arr[i] != ' ') {
+        li.classList.add("letter");
       } else {
-        li.classList.add('space');
+        li.classList.add("space");
       }
   }
 }
 
-function checkLetter() {
-  
+function checkLetter(button) {
+
 }
 
 // getRandomPhraseArray(phrases);
-addPhrasetoDisplay(phraseArray);
+addPhraseToDisplay(phraseArray);
