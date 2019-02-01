@@ -30,6 +30,7 @@ function getRandomPhraseArray(arr){
 }
 
 const phraseArray = getRandomPhraseArray(phrases);
+addPhraseToDisplay(phraseArray);
 
 function addPhraseToDisplay(arr){
   for (let i = 0; i < arr.length; i++) {
@@ -56,12 +57,13 @@ function checkLetter(button) {
 }
 
 words.addEventListener('click', (event) =>{
-  const letterFound = checkLetter(event);
   event.target.classList.add("chosen");
+  const letterFound = checkLetter(event);
 
+  if(checkLetter === null) {
+    missed += 1;
+  } else {
+    missed += 0;
+  }
 
 });
-
-
-// getRandomPhraseArray(phrases);
-addPhraseToDisplay(phraseArray);
