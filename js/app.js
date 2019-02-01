@@ -4,8 +4,8 @@ const mainButton = document.querySelector('.btn__reset');
 const overLay = document.getElementById('overlay');
 const ul = document.querySelector('#phrase ul');
 const point = document.body.style.cursor = "pointer";
-const keyBoard = document.getElementById('qwerty');
-const letter = document.querySelector('.letter');
+const letter = document.getElementsByClassName('letter');
+
 let missed = 0;
 
 
@@ -32,7 +32,7 @@ function getRandomPhraseArray(arr){
 const phraseArray = getRandomPhraseArray(phrases);
 
 function addPhraseToDisplay(arr){
-  for (i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     let li = document.createElement('li');
       li.textContent = arr[i];
       ul.appendChild(li);
@@ -45,9 +45,9 @@ function addPhraseToDisplay(arr){
 }
 
 function checkLetter(button) {
-  for(i = 0; i < letter.length; i++) {
-    if (letter[i] === button) {
-      const correctLetter = li.letter.classList.add("show");
+  for(let i = 0; i < letter.length; i++) {
+    if (button.target.textContent === letter[i].textContent) {
+      const correctLetter = letter[i].classList.add("show");
       return correctLetter;
     } else {
       return null;
@@ -55,8 +55,9 @@ function checkLetter(button) {
   }
 }
 
-keyBoard.addEventListener('click', (event) =>{
-  const letterFound = correctLetter;
+words.addEventListener('click', (event) =>{
+  const letterFound = checkLetter(event);
+  event.target.classList.add("chosen");
 
 
 });
