@@ -5,7 +5,6 @@ const overLay = document.getElementById('overlay');
 const ul = document.querySelector('#phrase ul');
 const point = document.body.style.cursor = "pointer";
 const letter = document.getElementsByClassName('letter');
-
 let missed = 0;
 
 
@@ -60,13 +59,12 @@ function checkLetter(button) {
 words.addEventListener('click', (event) =>{
   if (event.target.tagName === 'BUTTON') {
     event.target.classList.add("chosen");
+    event.target.disabled = true;
   }
   const letterFound = checkLetter(event);
 
   if(letterFound === null) {
     missed += 1;
-  } else {
-    missed += 0;
   }
 
 });
