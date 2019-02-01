@@ -46,21 +46,24 @@ function addPhraseToDisplay(arr){
 }
 
 function checkLetter(button) {
+  let guessed = null;
   for(let i = 0; i < letter.length; i++) {
     if (button.target.textContent === letter[i].textContent) {
-      const correctLetter = letter[i].classList.add("show");
-      return correctLetter;
-    } else {
-      return null;
+      guessed = true;
+      letter[i].classList.add("show");
+      } 
     }
+    return guessed;
   }
-}
+
 
 words.addEventListener('click', (event) =>{
-  event.target.classList.add("chosen");
+  if (event.target.tagName === 'BUTTON') {
+    event.target.classList.add("chosen");
+  }
   const letterFound = checkLetter(event);
 
-  if(checkLetter === null) {
+  if(letterFound === null) {
     missed += 1;
   } else {
     missed += 0;
