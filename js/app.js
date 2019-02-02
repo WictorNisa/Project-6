@@ -5,6 +5,9 @@ const overLay = document.getElementById('overlay');
 const ul = document.querySelector('#phrase ul');
 const point = document.body.style.cursor = "pointer";
 const letter = document.getElementsByClassName('letter');
+const show = document.querySelector('.show');
+const title = document.querySelector('.title');
+const image = document.querySelectorAll('img');
 let missed = 0;
 
 
@@ -55,16 +58,30 @@ function checkLetter(button) {
     return guessed;
   }
 
+function checkWin() {
+  if (missed === 5) {
+    overLay.style.display = '';
+    overLay.className = '';
+    overlay.classList.add('lose');
+    title.innerHTML = 'You lost! :(';
+    }
+     else if(show.length === letter.length) {
+    overLay.style.display = '';
+    overLay.className = '';
+    overlay.classList.add('win');
+    title.innerHTML = 'You are the winner :D';
+  }
+}
 
 words.addEventListener('click', (event) =>{
   if (event.target.tagName === 'BUTTON') {
-    event.target.classList.add("chosen");
-    event.target.disabled = true;
+      event.target.classList.add("chosen");
+      event.target.disabled = true;
   }
   const letterFound = checkLetter(event);
-
-  if(letterFound === null) {
-    missed += 1;
-  }
-
+    if(letterFound === null && missed < 5) {
+      image[missed].setAttribute('src', 'images/lostHeart.png');
+      missed ++;
+    }
+    checkWin();
 });
