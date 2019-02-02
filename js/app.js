@@ -5,7 +5,6 @@ const overLay = document.getElementById('overlay');
 const ul = document.querySelector('#phrase ul');
 const point = document.body.style.cursor = "pointer";
 const letter = document.getElementsByClassName('letter');
-const show = document.querySelector('.show');
 const title = document.querySelector('.title');
 const image = document.querySelectorAll('img');
 let missed = 0;
@@ -59,6 +58,7 @@ function checkLetter(button) {
   }
 
 function checkWin() {
+  const show = document.querySelectorAll('.show');
   if (missed === 5) {
     overLay.style.display = '';
     overLay.className = '';
